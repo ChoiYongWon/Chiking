@@ -3,7 +3,9 @@ var router = express.Router();
 
 router.get("/", (req,res)=>{
     req.logOut()
-    res.redirect("/")
+    req.session.save(function(){
+        res.redirect("/")
+    })
 })
 
 module.exports = router;
