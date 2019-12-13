@@ -1,6 +1,7 @@
 var mongoose = require("mongoose")
 var User = require("./Schemas/user")
 var Chicken = require("./Schemas/chicken")
+var init = require("../init/chicken_init")
 
 module.exports = () => {
     const connect = () =>{
@@ -10,6 +11,11 @@ module.exports = () => {
                     console.log("몽고디비 에러")
                 }else{
                     console.log("몽고디비 연결 성공")
+
+                    //init.init()
+                    // var chickens = Chicken.find({type:"굽네"}, (err, info)=>{
+                    //     console.log(info)
+                    // });
                 }
             }
         )
