@@ -6,6 +6,7 @@ var FileStore = require("session-file-store")(session)
 var passport = require("passport")
 var fb = require("./routes/facebook")
 var logout = require("./routes/logout")
+var auth = require("./auth/authorize")
 
 app.set("view engine", "ejs")
 app.set("views", "./views")
@@ -43,4 +44,7 @@ app.get("/", (req, res)=>{
     //console.log("유저",req.user)
 })
 
+app.get("/logined", auth.logined , (req,res)=>{
+    res.send("logined")
+})
 app.listen(8000);
