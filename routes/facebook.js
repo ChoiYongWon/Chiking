@@ -54,10 +54,10 @@ router.get('/facebook',
 
 router.get('/facebook/callback',
   passport.authenticate('facebook', { /*successRedirect: '/main',*/
-                                      failureRedirect: '/login' }),
+                                      failureRedirect: '/' }),
                                       function(req, res){
                                         req.session.save(function(){
-                                          res.redirect("/info")
+                                          res.redirect("/")
                                         })
                                       });
 

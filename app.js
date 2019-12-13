@@ -7,6 +7,7 @@ var passport = require("passport")
 var fb = require("./routes/facebook")
 var logout = require("./routes/logout")
 var auth = require("./auth/authorize")
+var Chicken = require("./db/Schemas/chicken")
 
 app.set("view engine", "ejs")
 app.set("views", "./views")
@@ -40,7 +41,12 @@ app.get("/info", (req, res)=>{
 })
 
 app.get("/", (req, res)=>{
-    res.render("index")
+    var chickens = Chicken.find({type:"굽네"}, (err, info)=>{
+        res.render("index",{
+            info:info,
+            logined:(req.user==undefined) ? false : true
+        })
+    });
     //console.log("유저",req.user)
 })
 
