@@ -14,10 +14,11 @@ app.set("views", "./views")
 
 app.use(express.static(__dirname+"/public"))
 app.use(session({
+    
     secret:"secret",
     resave: false,
     saveUninitialized: true,
-    store: new FileStore(),
+    store: new FileStore({logFn: function(){}}),
     cookie:{
         secure:false
     }
