@@ -29,13 +29,27 @@
     </div>
     <div class="container center">
        <%for(var i=0;i<info.length;i++){%>
-        <div>
+        <div class="chicken_info">
             <span class="info">name : <%=info[i].name%></span>
-            <span class="info">like_count : <%=info[i].like_count%></span>
-            <a class="waves-effect waves-teal btn-flat">투표하기</a>
+            <span id="<%=info[i].like_count%>" class="info">like_count : <%=info[i].like_count%></span>
+            <a id="<%=info[i].name%>" class="waves-effect waves-blue btn-flat vote-btn">투표하기</a>
         </div>
         <%}%>
-    </div>
+        <div id="test">클릭</div>
+    </div>  
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <script>
+    $(document).ready(function(){
+        $('.vote-btn').click(function(e){
+            alert($(this).attr("id"))
+        })
+    })
+    
+        
+    </script>
     <script src="js/materialize.min.js"></script>
 </body>
 </html>
