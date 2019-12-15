@@ -8,6 +8,8 @@ var fb = require("./routes/facebook")
 var logout = require("./routes/logout")
 var auth = require("./auth/authorize")
 var Chicken = require("./db/Schemas/chicken")
+var vote = require("./routes/vote")
+var info = require("./routes/info")
 
 app.set("view engine", "ejs")
 app.set("views", "./views")
@@ -31,23 +33,18 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use("/auth", fb)
 app.use("/logout", logout)
+app.use("/vote", vote)
+app.use("/info", info)
 
-app.get("/info", (req, res)=>{
-    res.render("info",{
-        name:req.user.name,
+
+app.get("/", auth.logined,async(req, res)=>{
+    var chickens = await Chicken.find({type:"굽네"}).sort({like_count:-1});
+    await res.render("index",{
         email:req.user.email,
-        age:req.user.age,
-        gender: req.user.gender
+        info:chickens,
+        logined:(req.user==undefined) ? false : true
     })
-})
-
-app.get("/", (req, res)=>{
-    var chickens = Chicken.find({type:"굽네"}, (err, info)=>{
-        res.render("index",{
-            info:info,
-            logined:(req.user==undefined) ? false : true
-        })
-    });
+    console.log("로그인함")
     //console.log("유저",req.user)
 })
 
