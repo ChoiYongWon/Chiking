@@ -82,7 +82,11 @@
                         console.log("통신성공 ")
                         window.location.replace("http://localhost:8000");
                     }else if(result.result==false){
-                        alert("이미 투표하셨습니다.")
+                        if(result.type=="already"){
+                            alert("이미 투표하셨습니다.")
+                        }else if(result.type=="nocount"){
+                            alert("투표 3번을 초과하셨습니다")
+                        }
                     }
                 }
             })

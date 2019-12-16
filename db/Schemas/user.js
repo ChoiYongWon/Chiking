@@ -22,6 +22,10 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
+    vote_count:{
+        type:Number,
+        required:true
+    },
     createdAt:{
         type:Date,
         default:Date.now()

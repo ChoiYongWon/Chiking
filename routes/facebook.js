@@ -39,7 +39,8 @@ passport.use(new FacebookStrategy({
           name:profile._json.last_name+profile._json.first_name,
           email:profile._json.email,
           age:profile._json.age_range.min,
-          gender:profile.gender
+          gender:profile.gender,
+          vote_count: 3
         })
         user.save()
         done(null, user);
