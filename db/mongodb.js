@@ -2,10 +2,19 @@ var mongoose = require("mongoose")
 var User = require("./Schemas/user")
 var Chicken = require("./Schemas/chicken")
 var init = require("../init/chicken_init")
+const MongoClient = require('mongodb').MongoClient;
+const url = "mongodb+srv://root:kelly10975@cluster0-ebww6.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(url, { useNewUrlParser: true });
+
 
 module.exports = () => {
     const connect = () =>{
-        mongoose.connect("mongodb://root:kelly10975@localhost:27017/admin",{ dbName:"Chiking", useNewUrlParser: true},
+        // client.connect(err => {
+        //     const collection = client.db("test").collection("devices");
+        //     // perform actions on the collection object
+        //     client.close();
+        //   });
+        mongoose.connect(url,{ dbName:"Chiking", useNewUrlParser: true},
             async (error)=>{
                 if(error){
                     console.log("몽고디비 에러")
