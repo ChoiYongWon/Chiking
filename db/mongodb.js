@@ -24,10 +24,8 @@ module.exports = () => {
                     //init.init()
                     // var chickens = Chicken.find({type:"굽네"}, (err, info)=>{
                     //     console.log(info)
-                    // });
                 }
-            }
-        )
+                   }       )
     }
 
     connect();

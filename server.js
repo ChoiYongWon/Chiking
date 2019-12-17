@@ -10,6 +10,7 @@ var auth = require("./auth/authorize")
 var Chicken = require("./db/Schemas/chicken")
 var vote = require("./routes/vote")
 var info = require("./routes/info")
+var policy = require("./routes/policy")
 
 app.set("view engine", "ejs")
 app.set("views", "./views")
@@ -35,6 +36,7 @@ app.use("/auth", fb)
 app.use("/logout", logout)
 app.use("/vote", vote)
 app.use("/info", info)
+app.use("/policy",policy)
 
 
 app.get("/", auth.logined,async(req, res)=>{
