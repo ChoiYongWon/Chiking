@@ -51,4 +51,4 @@ app.get("/", auth.logined,async(req, res)=>{
 app.get("/logined", auth.logined , (req,res)=>{
     res.send("logined")
 })
-app.listen(8000);
+app.listen(80);
