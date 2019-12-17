@@ -38,8 +38,8 @@ passport.use(new FacebookStrategy({
           id:profile.id,
           name:profile._json.last_name+profile._json.first_name,
           email:profile._json.email,
-          age:profile._json.age_range.min,
-          gender:profile.gender,
+          /*age:profile._json.age_range.min,
+          gender:profile.gender,*/
           vote_count: 3
         })
         user.save()
@@ -50,7 +50,7 @@ passport.use(new FacebookStrategy({
 ));
 
 router.get('/facebook',
-  passport.authenticate('facebook', { scope: ['email', 'user_age_range', 'user_birthday', 'user_gender'] })
+  passport.authenticate('facebook', { scope: ['email'/*, 'user_age_range', 'user_birthday', 'user_gender'*/] })
 );
 
 router.get('/facebook/callback',
