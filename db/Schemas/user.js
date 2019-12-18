@@ -14,14 +14,14 @@ const userSchema = new Schema({
         type:String,
         required:true
     },
-    age:{
+    /*age:{
         type:Number,
         required:true
     },
     gender:{
         type:String,
         required:true
-    },
+    },*/
     vote_count:{
         type:Number,
         required:true
