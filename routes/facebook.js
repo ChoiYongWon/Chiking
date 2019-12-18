@@ -24,7 +24,7 @@ var passport = require('passport')
 passport.use(new FacebookStrategy({
     clientID: "426311531381060",
     clientSecret: "ce98040e480d3bfca5750367d4992561",
-    callbackURL: "http://chiking.kr/auth/facebook/callback",
+    callbackURL: "https://chiking.kr/auth/facebook/callback",
     profileFields :["id", "emails", "name", "age_range", "birthday", "gender"]
   },
   function(accessToken, refreshToken, profile, done) {
