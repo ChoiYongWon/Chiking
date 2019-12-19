@@ -5,7 +5,7 @@ var auth = require("../auth/authorize")
 router.post("/",auth.logined, (req, res)=>{
     res.send({
         name:req.user.name,
-        id: req.user.id
+        id: req.user.id,
         /*email:req.user.email,
         age:req.user.age,
         gender: req.user.gender,*/
