@@ -28,22 +28,45 @@ passport.use(new FacebookStrategy({
     profileFields :["id", "emails", "name", /*"age_range", "birthday", "gender"*/]
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log("FACEBOOK STRATEGY",accessToken, refreshToken, profile)
-    User.find({id:profile.id}, (err, info)=>{
-      if(info.length>0){
-        done(null, info[0]);
+    //console.log("FACEBOOK STRATEGY",accessToken, refreshToken, profile)
+    User.findOne({id:profile.id}, async(err, info)=>{
+      if(info){
+        if(profile._json.email==undefined){
+          done(null, info);
+        }else{
+          if(info.email==undefined){
+            await User.updateOne({id:profile.id},{$set:{email:profile._json.email}}).exec()
+            await User.findOne({id:profile.id}, async(err, info)=>{
+              done(null, info)
+            });
+          }else{
+            done(null, info)
+          }
+        }
       }else{
-        console.log("저장",profile)
-        var user = new User({
-          id:profile.id,
-          name:profile._json.last_name+profile._json.first_name,
-          email:profile._json.email,
-          /*age:profile._json.age_range.min,
-          gender:profile.gender,*/
-          vote_count: 3
-        })
-        user.save()
-        done(null, user);
+        if(profile._json.email==undefined){
+          var user = new User({
+            id:profile.id,
+            name:profile._json.last_name+profile._json.first_name,
+            email:profile._json.email,
+            /*age:profile._json.age_range.min,
+            gender:profile.gender,*/
+            vote_count: 3
+          })
+          user.save()
+          done(null, user);
+        }else{
+          var user = new User({
+            id:profile.id,
+            name:profile._json.last_name+profile._json.first_name,
+            email:profile._json.email,
+            /*age:profile._json.age_range.min,
+            gender:profile.gender,*/
+            vote_count: 3
+          })
+          user.save()
+          done(null, user);
+        }
       }
     })
   }
