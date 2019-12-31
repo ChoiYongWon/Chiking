@@ -1,0 +1,168 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#chiking_title_bg{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chiking_logo {
+  width: 55px;
+  height: 55px;
+  background: url(../img/chiking_logo.svg) no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
+#chiking_title{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 82px;
+    margin-right: 5px;
+    color: #3E2723;
+}
+
+#sub_title{
+    position: relative;
+    top: -25;
+    text-align: end;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #A1887F;
+
+}
+
+#nav_bar{
+    width:60%;
+    height: 25px;
+    background: #795548;
+    border-radius: 3px;
+}
+
+#input_wrap{
+    display: flex;
+    width:50%;
+    height: 40px;
+    margin: 20px;
+    
+}
+
+#search_wrap{
+    width:80%;
+}
+
+#search_input[type="text"]{
+    width: 100%;
+    height:100%;
+    border:solid;
+    border-color: #3e2723;
+    border-radius: 5px;
+    font-size:1em;
+    padding-left: 35px;
+    font-family: Roboto;
+    display:inline;
+    color:black;
+    
+}
+
+#facebook_login_btn{
+    width: 170px;
+    height: 95%;
+    border-radius: 5px;
+    border: solid;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#3F51B5;
+    border-color: #3F51B5;
+    font-weight: bold;
+    border-width: thin;
+    cursor: pointer;
+}
+
+.search_icon{
+    position: relative;
+    left: 10;
+    bottom: 30;
+}
+
+#vote_card_wrap{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.vote_card{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: center;
+    width: 98%;
+    height: 50px;
+    border: solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    border-color: #3E2723;
+    border-width: thin;
+}
+
+.vote_card_rank{
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+.vote_card_brand{
+    height: 40px;
+    width: auto;
+    margin-right: 2%;
+}
+
+.vote_card_name{
+    width:20%;
+    font-weight: bold;
+    margin-right: 2%
+}
+
+.vote_card_vote{
+    height: 30px;
+    width: auto;
+    margin-right: 1%
+}
+
+.vote_card_count{
+    font-weight: bold;
+    margin-right: 15%;
+}
+
+.vote_card_percent{
+    font-weight: bold;
+    margin-right: 15%;
+}
+
+.vote_card_votebtn{
+    border: solid;
+    border-radius: 5px;
+    border-color:#795548;
+    color:#795548;
+    font-weight: bold;
+    width: 100px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+    margin-right: 2%;
+    cursor: pointer;
+}
