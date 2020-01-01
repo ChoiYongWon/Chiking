@@ -1,44 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Chiking</title>
-    <link rel="stylesheet" type="text/css" href="css/materialize.min.css"/>
-    
-    <style>
-        .waves-effect.waves-blue .waves-ripple {
-           /* The alpha value allows the text and background color
-           of the button to still show through. */
-            background-color: rgba(66, 103, 178, 0.8);
-          }
-        .info {
-            margin: 1em;
-        }
-        
-    </style>
-    
-</head>
-<body>
-   <div class="container" style="margin-top:0.5em;">
-        <%if(logined==false){%>
-            <a href="/auth/facebook" class="waves-effect waves-blue btn-flat">facebook login</a>
-        <%}else{%>
-            <a href="/logout" class="waves-effect waves-red btn-flat">logout</a>
-        <%}%>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="../public/css/chiking.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    </head>
 
-    </div>
-    <div class="container center">
-       <%for(var i=0;i<info.length;i++){%>
-        <div class="chicken_info">
-            <span class="info">name : <%=info[i].name%></span>
-            <span id="<%=info[i].like_count%>" class="info">like_count : <%=info[i].like_count%></span>
-            <a id="<%=info[i].name%>" class="waves-effect waves-blue btn-flat vote-btn">투표하기</a>
+    <body>
+        <div id="chiking_title_bg">
+            <div id="chiking_title">치킹</div>
+            <div id="chiking_logo"></div>
         </div>
-        <%}%>
-        <div id="test">클릭</div>
-    </div>  
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <div id="nav_bar">
+            <div id="sub_title">대한민국 최고의 치킨을 가려라!</div>
+        </div>
+        <div id="input_wrap">
+            <div id="search_wrap">
+                <input id="search_input" type="text" name="my_name" placeholder="ex) 갈비천왕">
+                <i class="material-icons search_icon">search</i>
+            </div>
+            <%if(logined==false){%>
+                <a href="/auth/facebook" id="facebook_login_btn">Facebook Login</a>
+            <%}else{%>
+                <a href="/logout" id="facebook_login_btn">logout</a>
+            <%}%>
+        </div>
+        <div id="vote_card_wrap">
+            <%for(var i=0;i<info.length;i++){%>
+            <div class="vote_card">
+                <div class="vote_card_rank"><%=(i+1)%>.</div>
+                <img class="vote_card_brand" src="../public/img/bhc.png">
+                <div class="vote_card_name"><%=info[i].name%></div>
+                <img class="vote_card_vote" src="../public/img/vote.svg">
+                <div class="vote_card_count">: <%=info[i].like_count%></div>
+                <div class="vote_card_percent">투표율 : 10%</div>
+                <div class="vote_card_votebtn">투표</div>
+            </div>
+            <%}%>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         var logined = "<%=JSON.stringify(logined)%>"
         var _user = {}
@@ -98,6 +99,5 @@
 
         
     </script>
-    <script src="js/materialize.min.js"></script>
-</body>
+    </body>
 </html>
