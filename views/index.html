@@ -55,37 +55,14 @@
     $(document).ready(function(){
 
         $('.vote-btn').click(function(e){
-            if(logined){
-                var chicken = $(this).attr("id");
-            $.ajax({
-                url:"/vote",
-                dataType:"json",
-                type:"POST",
-                data:{
-                    id:_user.id,
-                    chicken:chicken
-                },
-                success:function(result){
-                    if(result.result==true){
-                        console.log("통신성공 ")
-                        window.location.replace("http://chiking.kr");
-                    }else if(result.result==false){
-                        if(result.type=="already"){
-                            alert("이미 투표하셨습니다.")
-                        }else if(result.type=="nocount"){
-                            alert("투표 3번을 초과하셨습니다")
-                        }
-                    }
-                }
-            })
-            }else{
-                alert("로그인 하세요")
-            }
+           console.log("투표")
         })
         
         $("#search_input").keyup(function() {
             var value=$(this).val();
-            console.log(value)
+            $(".vote_card").hide();
+            var temp = $(".vote_card_name:contains('" + value + "')");
+            $(temp).parent().show()
         })
         
     })

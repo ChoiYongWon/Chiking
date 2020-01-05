@@ -97,8 +97,10 @@
         })
          $("#search_input").keyup(function() {
             var value=$(this).val();
-            console.log(value)
-        })
+            $(".vote_card").hide();
+            var temp = $(".vote_card_name:contains('" + value + "')");
+            $(temp).parent().show()
+         })
     })
 
         
