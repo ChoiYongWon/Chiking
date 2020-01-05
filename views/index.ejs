@@ -35,7 +35,7 @@
                 <img class="vote_card_vote" src="/img/vote.svg">
                 <div class="vote_card_count">: <%=info[i].like_count%></div>
                 <div class="vote_card_percent">투표율 : 10%</div>
-                <div class="vote_card_votebtn">투표</div>
+                <div class="vote_card_votebtn" id=<%=info[i].name%>>투표</div>
             </div>
             <%}%>
         </div>
@@ -94,6 +94,10 @@
             }else{
                 alert("로그인 하세요")
             }
+        })
+         $("#search_input").keyup(function() {
+            var value=$(this).val();
+            console.log(value)
         })
     })
 
