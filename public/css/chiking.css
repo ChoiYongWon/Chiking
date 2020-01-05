@@ -45,6 +45,7 @@ body{
 
 #nav_bar{
     width:60%;
+    min-width: 900px;
     height: 25px;
     background: #795548;
     border-radius: 3px;
