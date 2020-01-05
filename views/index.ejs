@@ -23,7 +23,7 @@
             <%if(logined==false){%>
                 <a href="/auth/facebook" id="facebook_login_btn">Facebook Login</a>
             <%}else{%>
-                <a href="/logout" id="facebook_login_btn">logout</a>
+                <a href="/logout" id="facebook_logout_btn">logout</a>
             <%}%>
         </div>
         <div id="vote_card_wrap">
@@ -67,7 +67,7 @@
         console.log(logined)
     $(document).ready(function(){
 
-        $('.vote-btn').click(function(e){
+        $('.vote_card_votebtn').click(function(e){
             if(logined){
                 var chicken = $(this).attr("id");
             $.ajax({

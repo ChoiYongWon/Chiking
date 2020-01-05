@@ -90,7 +90,26 @@ body{
     font-weight: bold;
     border-width: thin;
     cursor: pointer;
+    text-decoration: none;
 }
+
+#facebook_logout_btn{
+    width: 170px;
+    height: 95%;
+    border-radius: 5px;
+    border: solid;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#e53935;
+    border-color: #e53935;
+    font-weight: bold;
+    border-width: thin;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 
 .search_icon{
     position: relative;
@@ -116,9 +135,11 @@ body{
     padding-left: 10px;
     border-color: #3E2723;
     border-width: thin;
+    margin-bottom: 7px;
 }
 
 .vote_card_rank{
+    width:1em;
     font-weight: bold;
     margin-right: 2%;
 }

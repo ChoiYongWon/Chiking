@@ -20,24 +20,33 @@
                 <input id="search_input" type="text" name="my_name" placeholder="ex) 갈비천왕">
                 <i class="material-icons search_icon">search</i>
             </div>
-            <%if(logined==false){%>
+            
                 <a href="/auth/facebook" id="facebook_login_btn">Facebook Login</a>
-            <%}else{%>
-                <a href="/logout" id="facebook_login_btn">logout</a>
-            <%}%>
+            
+                
+            
         </div>
         <div id="vote_card_wrap">
-            <%for(var i=0;i<info.length;i++){%>
+            
             <div class="vote_card">
-                <div class="vote_card_rank"><%=(i+1)%>.</div>
+                <div class="vote_card_rank">1.</div>
                 <img class="vote_card_brand" src="../public/img/bhc.png">
-                <div class="vote_card_name"><%=info[i].name%></div>
+                <div class="vote_card_name">뿌링클</div>
                 <img class="vote_card_vote" src="../public/img/vote.svg">
-                <div class="vote_card_count">: <%=info[i].like_count%></div>
+                <div class="vote_card_count">: 5</div>
                 <div class="vote_card_percent">투표율 : 10%</div>
                 <div class="vote_card_votebtn">투표</div>
             </div>
-            <%}%>
+            <div class="vote_card">
+                <div class="vote_card_rank">10</div>
+                <img class="vote_card_brand" src="../public/img/bhc.png">
+                <div class="vote_card_name">볼케이노모짜렐라</div>
+                <img class="vote_card_vote" src="../public/img/vote.svg">
+                <div class="vote_card_count">: 5</div>
+                <div class="vote_card_percent">투표율 : 10%</div>
+                <div class="vote_card_votebtn">투표</div>
+            </div>
+         
         </div>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
